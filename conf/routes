@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /contacts                          controllers.Application.list()
+GET     /contacts/new                      controllers.Application.showBlank()
+GET     /contacts/:ean                     controllers.Application.show(ean: Long)
+POST    /contacts                          controllers.Application.add()
+POST    /contacts/:ean                     controllers.Application.save(ean: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

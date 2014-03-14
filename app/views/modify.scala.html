@@ -1,0 +1,18 @@
+@(personForm: Form[Person], ean: Long)
+@import helper._
+@import helper.twitterBootstrap._
+@main("Contacts form") {
+    <h1>Contacts form</h1>
+    @helper.form(action = routes.Application.save(ean)) {
+        <fieldset>
+            <legend>Contact (@personForm("name").valueOr("New"))</legend>
+            Ean is required
+            @helper.inputText(personForm("ean"))
+            @helper.inputText(personForm("firstname"))
+            @helper.inputText(personForm("lastname"))
+            @helper.inputText(personForm("number"))
+            @helper.textarea(personForm("notes"))
+        </fieldset>
+        <input type="submit" class="btn primary">
+    }
+}

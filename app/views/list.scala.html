@@ -1,0 +1,17 @@
+@(contactList: Set[Person])
+@main("Contacts catalogue") {
+    <h1>All contacts</h1>
+    <dl>
+
+@for(contact <- contactList) {
+    <dt>
+        <a href="@routes.Application.show(contact.ean)">
+            @contact.ean - @contact.firstname @contact.lastname
+        </a>
+    </dt>
+    <dd>@contact.notes</dd>
+}
+</dl>
+<a href="@routes.Application.showBlank()" class="btn">
+    <i class="icon-plus"></i> New contact</a>
+}
